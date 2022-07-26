@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'dart:convert';
-import 'package:loading_animation_widget/loading_animation_widget.dart';
 
 
 class Home extends StatefulWidget {
@@ -22,13 +21,13 @@ class _HomeState extends State<Home> {
     print(data);
 
     String bgImage = data['isDayTime'] ? "assets/day.png" : "assets/night.png";
-
-
     return Scaffold(
-            body: Container(
-              decoration: BoxDecoration(
-                image: DecorationImage(
-                  image: AssetImage(bgImage), fit: BoxFit.cover),
+      body: Container(
+        decoration: BoxDecoration(
+          image: DecorationImage(
+              image: AssetImage(bgImage),
+              fit: BoxFit.cover
+          ),
         ),
         child: Column(
           children: [
