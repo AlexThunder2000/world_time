@@ -11,7 +11,7 @@ class Loading extends StatefulWidget {
 
 class _LoadingState extends State<Loading> {
 
-  
+  //просто напишу сюди комент
   void setupWorldTime() async{
     WorldTime locationTime = WorldTime(location: 'Kyiv',flag: 'Ukraine',url: 'Europe/Kiev');
     await locationTime.getTime();
