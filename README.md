@@ -1,16 +1,8 @@
 # world_time
 
-A new Flutter project.
+A project for learning. Here I mastered the skills of working with  API, asynchronous code and navigating between screens
 
-## Getting Started
+## About
 
-This project is a starting point for a Flutter application.
+The program shows how many hours it is now in a particular country. Depending on the time of day, the background changes (day/night). To select a country, click on the "change location" button
 
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.

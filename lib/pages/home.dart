@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'dart:convert';
 
-
 class Home extends StatefulWidget {
   const Home({Key? key}) : super(key: key);
 
@@ -10,12 +9,10 @@ class Home extends StatefulWidget {
 }
 
 class _HomeState extends State<Home> {
-
-  Object? parameters ;
-  Map data  = {};
+  Object? parameters;
+  Map data = {};
   @override
   Widget build(BuildContext context) {
-
     parameters = ModalRoute.of(context)!.settings.arguments;
     data = data.isNotEmpty ? data : jsonDecode(jsonEncode(parameters));
     print(data);
@@ -24,10 +21,7 @@ class _HomeState extends State<Home> {
     return Scaffold(
       body: Container(
         decoration: BoxDecoration(
-          image: DecorationImage(
-              image: AssetImage(bgImage),
-              fit: BoxFit.cover
-          ),
+          image: DecorationImage(image: AssetImage(bgImage), fit: BoxFit.cover),
         ),
         child: Column(
           children: [
@@ -35,22 +29,29 @@ class _HomeState extends State<Home> {
               height: 100,
             ),
             TextButton.icon(
-                onPressed: () async{
-                 dynamic result = await Navigator.pushNamed(context, "/location");
-                 if(result['location']=='Moscow'){
-                   result['location'] = 'Ах ти агент кремля -_-';
-                 };
-                 setState((){
-                   data = {
-                     'time': result['time'],
-                     'location': result['location'],
-                     'isDayTime': result['isDayTime'],
-                   };
-                 });
-                 },
-                icon: const Icon(Icons.edit_location, color: Colors.white,),
-                label: const Text('edit location', style: TextStyle(color: Colors.white),),
-
+              onPressed: () async {
+                dynamic result =
+                    await Navigator.pushNamed(context, "/location");
+                if (result['location'] == 'Moscow') {
+                  result['location'] = 'Ах ти агент кремля -_-';
+                }
+                ;
+                setState(() {
+                  data = {
+                    'time': result['time'],
+                    'location': result['location'],
+                    'isDayTime': result['isDayTime'],
+                  };
+                });
+              },
+              icon: const Icon(
+                Icons.edit_location,
+                color: Colors.white,
+              ),
+              label: const Text(
+                'change location',
+                style: TextStyle(color: Colors.white),
+              ),
             ),
             const SizedBox(
               height: 70,
@@ -59,11 +60,15 @@ class _HomeState extends State<Home> {
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  Text(
-                    data['location'],
-                    style: const TextStyle(
-                      fontSize: 35,
-                      color: Colors.white,
+                  Expanded(
+                    child: Center(
+                      child: Text(
+                        data['location'],
+                        style: const TextStyle(
+                          fontSize: 35,
+                          color: Colors.white,
+                        ),
+                      ),
                     ),
                   ),
                   const SizedBox(
@@ -72,7 +77,8 @@ class _HomeState extends State<Home> {
                 ],
               ),
             ),
-            Text(data['time'],
+            Text(
+              data['time'],
               style: const TextStyle(
                 fontSize: 100,
                 color: Colors.white,
